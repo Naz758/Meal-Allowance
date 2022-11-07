@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+Claim List
+{% endblock head_title %}
+
+
+
+{% block content %}
+<div class="py-5 container">
+    <h1>Claims</h1>
+    <hr>
+    <form action=""
+        method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <div class="my-3 text-end">
+            <button class="btn btn-outline-success"
+                type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+Claim List
+{% endblock head_title %}
+
+
+
+{% block content %}
+<div class="py-5 container">
+    <h1>Claim</h1>
+    <hr>
+    <div class="text-end">
+        {% now "jS F Y" %}
+    </div>
+    <form action=""
+        method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                {{request.user.staff}}
+                <hr>
+                {{ form.staff|as_crispy_field }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-4">
+                {{ form.amount|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                {{ form.start_time|as_crispy_field }}
+            </div>
+            <div class="col-lg-2">
+                {{ form.end_time|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                {{ form.location|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                {{ form.purpose|as_crispy_field }}
+            </div>
+        </div>
+        <hr>
+        <div class="text-end">
+            <button class="btn btn-outline-success"
+                type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

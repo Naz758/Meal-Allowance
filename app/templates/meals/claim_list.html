@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}
+Claim List
+{% endblock head_title %}
+
+
+
+{% block content %}
+<div class="py-5 container">
+    <h1>Claims</h1>
+    <hr>
+    <a href="{% url 'meals:claim-create' %}">Add Claim</a>
+
+    <ol>
+        {% for object in object_list %}
+        <li><a href="{% url 'meals:claim-detail' object.pk %}">{{object.staff}}</a></li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock content %}
