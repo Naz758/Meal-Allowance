@@ -14,4 +14,5 @@ urlpatterns = [
         name="claim-approve-detail",
     ),
     path("staff/<int:pk>/", views.StaffUpdateView.as_view(), name="staff-update"),
+    path('pdf/<int:pk>/', views.render_pdf_view, name='pdf')
 ]

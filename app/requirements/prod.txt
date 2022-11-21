@@ -2,3 +2,5 @@ django==4.1.3
 django-crispy-forms
 django-allauth
 gunicorn
+xhtml2pdf
+django-bootstrap-v5

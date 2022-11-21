@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from django.urls import reverse
 
 class User(AbstractUser):
     can_add_claim = models.BooleanField(default=True)
@@ -57,6 +57,9 @@ class Claim(models.Model):
     purpose = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse("meals:claim-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.staff.full_name} {self.amount}"

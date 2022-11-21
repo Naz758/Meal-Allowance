@@ -8,87 +8,110 @@
 
 
 {% block content %}
-<div class="pt-5 container">
-    <div class="text-center mb-5">
-        <div class="display-3 mb-3">Computer Centre Limited</div>
-        <div class="display-6">Meal Allowance Claim Form</div>
-    </div>
-    <div class="card mx-auto"
-        style="width: 30rem;">
-        <div class="card-header small text-end text-muted">
-            {{object.created_at}}
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <span class="small text-muted">Employee Name</span>
-                <br>
-                {{object.staff.full_name}}
-            </li>
-            <li class="list-group-item">
-                <span class="small text-muted">Position/Job Title</span>
-                <br>
-                {{object.staff.position|title}}
-            </li>
-            <li class="list-group-item">
-                <span class="small text-muted">Location</span>
-                <br>
-                {{object.location}}
-            </li>
-            <li class="list-group-item">
-                <span class="small text-muted">Start and end time</span>
-                <br>
-                {{object.start_time}} -
-                {{object.end_time}}
-            </li>
-            <li class="list-group-item">
-                <span class="small text-muted">Amount Claimed</span>
-                <br>
-                {{object.amount}}
-            </li>
-            <li class="list-group-item">
-                <span class="small text-muted">Purpose</span>
-                <br>
-                {{object.purpose}}
-            </li>
-        </ul>
-    </div>
-    <div class="d-flex justify-content-center">
 
-    <div class="row mt-5 mb-3">
-        <div class="col-lg-8">
-            <label for="approved-by">Approved by</label>
-            <input type="text"
-                name=""
-                class="form-control"
-                id="approved-by">
-        </div>
-        <div class="col-lg-4">
-            <label for="approved-by-date">Date</label>
-            <input type="text"
-                name=""
-                class="form-control"
-                id="approved-by-date">
+<div class="pt-5 container-sm">
+    <div class="text-center mb-5">
+        <div class="h1 mb-3">Computer Centre Limited</div>
+        <div class="h3">Meal Allowance Claim Form</div>
+    </div>
+    <div class="text-end">
+        <a href=""
+            onclick="window.print()"
+            class="text-muted">
+            <span class="material-symbols-outlined">
+                print
+            </span></a>
+    </div>
+    <table class="mx-auto table table-hover">
+        <tbody>
+            <th>
+                <tr>
+                    {{object.created_at|date:"jS F Y"}}
+                </tr>
+            </th>
+            <tr>
+                <td>
+                    <span class="small text-muted">Employee Name</span>
+                    <br>
+                    {{object.staff.full_name}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="small text-muted">Position/Job Title</span>
+                    <br>
+                    {{object.staff.position|title}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="small text-muted">Location</span>
+                    <br>
+                    {{object.location}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="small text-muted">Start and end time</span>
+                    <br>
+                    {{object.start_time}} -
+                    {{object.end_time}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="small text-muted">Amount Claimed</span>
+                    <br>
+                    {{object.amount}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="small text-muted">Purpose</span>
+                    <br>
+                    {{object.purpose}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="my-5">
+        <div class="d-flex justify-content-center">
+                <div class="col-lg-4 text-center mx-5">
+                    <input type="text"
+                        class="form-control border-0 border-bottom rounded-0"
+                        id="">
+                    <label for="">Approved by</label>
+                </div>
+            <div class="col-lg-2 text-center">
+                <input type="text"
+                    class="form-control border-0 border-bottom rounded-0"
+                    id="">
+                <label for="">Date</label>
+            </div>
         </div>
     </div>
-</div>
-    <div class="d-flex justify-content-center">
-        <div class="col-lg-6 mt-3">
-            <p class="text-center fw-bold mb-0">Note</p>
-            <span class="text-justify small fw-bold">
-                A meal allowance is payable in circumstances where the overtime
-                is approved by Management and shall be payable to a staff
-                member, at the prescribed rate where:</span>
-            <ol class="text-justify small fw-bold">
-                <li> The staff member works at least one and
-                    a half hours
-                    authorised
-                    overtime before or after his/her ordinary hours for the day
-                </li>
-                <li> such overtime is continuous with the
-                    staff member's normal
-                    hours
-                    for the day except for any intervening meal </li>
-            </ol>
+    <div class="row">
+        <div class="">
+            <div class="">
+                <p class="text-center fw-bold mb-0">Note</p>
+                <span class="text-justify small fw-bold">
+                    A meal allowance is payable in circumstances where the
+                    overtime
+                    is approved by Management and shall be payable to a staff
+                    member, at the prescribed rate where:</span>
+                <ol class="text-justify small fw-bold">
+                    <li> The staff member works at least one and
+                        a half hours
+                        authorised
+                        overtime before or after his/her ordinary hours for the
+                        day
+                    </li>
+                    <li> such overtime is continuous with the
+                        staff member's normal
+                        hours
+                        for the day except for any intervening meal </li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>

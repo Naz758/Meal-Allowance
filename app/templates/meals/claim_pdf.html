@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>{{object.staff.full_name}} - {{object.amount}}</title>
+    <style>
+        html,
+        body {
+            font-family: sans-serif;
+        }
+
+        .text-justify {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+     
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <table class="mx-auto table table-hover">
+            <tbody>
+                <th>
+                    <tr>
+                        {{object.created_at|date:"jS F Y"}}
+                    </tr>
+                </th>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Employee Name</span>
+                        <br>
+                        {{object.staff.full_name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Position/Job Title</span>
+                        <br>
+                        {{object.staff.position|title}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Location</span>
+                        <br>
+                        {{object.location}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Start and end time</span>
+                        <br>
+                        {{object.start_time}} -
+                        {{object.end_time}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Amount Claimed</span>
+                        <br>
+                        {{object.amount}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="small text-muted">Purpose</span>
+                        <br>
+                        {{object.purpose}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <h1 class="fs-1 mb-0">Computer Centre Limited</h1>
+            <h3 class="fs-3 mt-0">Meal Allowance Claim Form</h3>
+        </div>
+        <p class="fs-3 fw-bold">
+            {{object.created_at|date:"jS F Y"}}</p>
+        <div class="container mb-0 mt-0">
+            <p class="fs-3 border-bottom">
+                <span class="small text-muted">Employee Name</span><br>
+                {{object.staff.full_name}}
+            </p>
+            <p class="fs-3">{{object.location}}</p>
+            <p class="fs-3">{{object.start_time}} - {{object.end_time}}</p>
+            <p class="fs-3">{{object.amount}}</p>
+            <p class="fs-3">{{object.purpose}}</p>
+            <p class="fs-3">{{object.location}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
