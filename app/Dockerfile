@@ -1,5 +1,5 @@
 # Base Image
-FROM python:3.9.6-alpine
+FROM python:3.9.6-buster
 
 # create and set working directory
 RUN mkdir /app
