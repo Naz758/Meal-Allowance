@@ -11,12 +11,23 @@ Claim List
 <div class="py-5 container">
     <h1>Claims</h1>
     <hr>
-    <a href="{% url 'meals:claim-create' %}">Add Claim</a>
-
-    <ol>
-        {% for object in object_list %}
-        <li><a href="{% url 'meals:claim-detail' object.pk %}">{{object.staff}}</a></li>
-        {% endfor %}
-    </ol>
+    <div class="my-3">
+        <a class="btn btn-outline-dark rounded-pill px-5"
+            href="{% url 'meals:claim-create' %}">Add Claim</a>
+    </div>
+    <div class="container">
+        <ol>
+            {% for object in object_list %}
+            <li>
+                <a
+                    href="{% url 'meals:claim-detail' object.pk %}">{{object.staff}}</a>
+                <br>
+                <div class="container">
+                    <span class="text-muted small">{{object.updated_at}}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
 </div>
 {% endblock content %}

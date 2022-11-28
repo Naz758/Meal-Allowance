@@ -14,3 +14,15 @@ class ClaimCreateForm(ModelForm):
             "end_time": forms.TextInput(attrs={"type": "time"}),
             "purpose": forms.Textarea(attrs={"rows": 3}),
         }
+
+
+class ClaimUpdateForm(ModelForm):
+    class Meta:
+        model = Claim
+        fields = "__all__"
+        exclude = ("staff",)
+        widgets = {
+            "start_time": forms.TextInput(attrs={"type": "time"}),
+            "end_time": forms.TextInput(attrs={"type": "time"}),
+            "purpose": forms.Textarea(attrs={"rows": 3}),
+        }

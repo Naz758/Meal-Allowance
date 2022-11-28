@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 
+
 class User(AbstractUser):
     can_add_claim = models.BooleanField(default=True)
     can_approve_calm = models.BooleanField(default=False)
@@ -10,14 +11,14 @@ class User(AbstractUser):
 
 
 class Position(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
@@ -50,7 +51,7 @@ class ClaimAmount(models.Model):
 
 class Claim(models.Model):
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
-    location = models.CharField(max_length=50)
+    location = models.CharField(max_length=100)
     start_time = models.TimeField()
     end_time = models.TimeField()
     amount = models.ForeignKey(ClaimAmount, on_delete=models.SET_DEFAULT, default=1)

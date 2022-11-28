@@ -6,15 +6,15 @@ from django.template.loader import get_template
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 from xhtml2pdf import pisa
 
-from .forms import ClaimCreateForm
+from .forms import ClaimCreateForm, ClaimUpdateForm
 from .models import Claim, ClaimApprover, Staff
 
 
-class ClaimListView(ListView):
+class ClaimListView(LoginRequiredMixin,ListView):
     model = Claim
 
 
-class ClaimDetailView(DetailView):
+class ClaimDetailView(LoginRequiredMixin,DetailView):
     model = Claim
 
 
@@ -61,11 +61,13 @@ class ClaimCreateView(LoginRequiredMixin, CreateView):
     #     # etc...
     #     return initial
 
-
-class ClaimApproverCreateView(CreateView):
-    model = ClaimApprover
-    fields = "__all__"
-
+class ClaimUpdateView(LoginRequiredMixin, UpdateView):
+    model = Claim
+    form_class = ClaimUpdateForm
+    
+    def form_valid(self, form):
+        form.instance.staff = self.request.user.staff
+        return super().form_valid(form)
 
 class StaffUpdateView(UpdateView):
     model = Staff

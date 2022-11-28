@@ -9,16 +9,21 @@
 
 {% block content %}
 
-<div class="pt-5 container-sm">
+<div class="pt-3 container-sm">
     <div class="text-center mb-5">
         <div class="h1 mb-3">Computer Centre Limited</div>
         <div class="h3">Meal Allowance Claim Form</div>
     </div>
     <div class="text-end">
+        <a class="text-decoration-none" href="{% url 'meals:claim-update' object.pk %}">
+            <span class="material-symbols-outlined text-warning">
+                edit
+            </span>
+        </a>
         <a href=""
             onclick="window.print()"
             class="text-muted">
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined text-success">
                 print
             </span></a>
     </div>
@@ -76,12 +81,12 @@
     </table>
     <div class="my-5">
         <div class="d-flex justify-content-center">
-                <div class="col-lg-4 text-center mx-5">
-                    <input type="text"
-                        class="form-control border-0 border-bottom rounded-0"
-                        id="">
-                    <label for="">Approved by</label>
-                </div>
+            <div class="col-lg-4 text-center mx-5">
+                <input type="text"
+                    class="form-control border-0 border-bottom rounded-0"
+                    id="">
+                <label for="">Approved by</label>
+            </div>
             <div class="col-lg-2 text-center">
                 <input type="text"
                     class="form-control border-0 border-bottom rounded-0"

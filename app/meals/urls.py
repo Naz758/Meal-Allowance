@@ -8,11 +8,6 @@ urlpatterns = [
     path("", views.ClaimListView.as_view(), name="claim-list"),
     path("create", views.ClaimCreateView.as_view(), name="claim-create"),
     path("detail/<int:pk>/", views.ClaimDetailView.as_view(), name="claim-detail"),
-    path(
-        "approve/<int:pk>/",
-        views.ClaimApproverCreateView.as_view(),
-        name="claim-approve-detail",
-    ),
-    path("staff/<int:pk>/", views.StaffUpdateView.as_view(), name="staff-update"),
+    path("update/<int:pk>/", views.ClaimUpdateView.as_view(), name="claim-update"),
     path('pdf/<int:pk>/', views.render_pdf_view, name='pdf')
 ]
