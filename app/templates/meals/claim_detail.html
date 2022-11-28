@@ -29,11 +29,13 @@
     </div>
     <table class="mx-auto table table-hover">
         <tbody>
-            <th>
-                <tr>
-                    {{object.created_at|date:"jS F Y"}}
-                </tr>
-            </th>
+            <tr>
+                <td>
+                    <span class="small text-muted">Date</span>
+                    <br>
+                    {{object.date|date:"jS F Y"}}
+                </td>
+            </tr>
             <tr>
                 <td>
                     <span class="small text-muted">Employee Name</span>

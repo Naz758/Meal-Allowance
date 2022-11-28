@@ -50,6 +50,7 @@ class ClaimAmount(models.Model):
 
 
 class Claim(models.Model):
+    date = models.DateField(null=True)
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
     start_time = models.TimeField()

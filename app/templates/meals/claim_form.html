@@ -26,6 +26,11 @@ Claim form
         <hr>
         <div class="shadow-lg p-lg-5 col-lg-4 mx-auto rounded-3">
             <div class="row">
+                <div class="col-lg-6">
+                    {{ form.date|as_crispy_field }}
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     {{ form.amount|as_crispy_field }}
                 </div>
